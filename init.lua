@@ -1,4 +1,6 @@
 require("core")
 require("plugins")
 
-vim.cmd.colorscheme("rose-pine")
+print "Hello From nvim.me"
+
+vim.cmd.colorscheme("terafox")

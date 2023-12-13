@@ -1,5 +1,8 @@
 -- Main Options
 vim.opt.number 		      = true                  -- shows current line number
+
+vim.opt.completeopt     = "menu,menuone,noselect" -- Better autocompletion
+vim.opt.pumheight       = 10                      --- Max num of items in completion menu
 vim.opt.relativenumber 	= true                  -- enables relative number
 vim.opt.clipboard 	    = "unnamed,unnamedplus" -- copy-paste outside vim
 vim.opt.cursorline     	= true                  -- highlight current line
@@ -12,7 +15,7 @@ vim.opt.tabstop        	= 2                     -- insert 2 space for a tab
 vim.opt.undofile       	= true                  -- 
 vim.opt.wrap           	= false                 -- 
 vim.opt.termguicolors   = true                  -- 
-vim.opt.signcolumn      = "yes:1"               -- add extra sign column
+vim.opt.signcolumn      = "yes:2"               -- add extra sign column
 vim.opt.pumheight       = 10                    -- max num of items in completion menu
 vim.opt.wildignore     = "*node_modules/**"     -- don't search inside Node.js modules (works for gutentag)
 vim.opt.splitright     = true                   -- vertical splits will automatically be to the right
@@ -23,6 +26,12 @@ vim.cmd.highlight("GitSignsAdd guibg=NONE")
 vim.cmd.highlight("GitSignsChange guibg=NONE")
 vim.cmd.highlight("GitSignsDelete guibg=NONE")
 vim.cmd.highlight("SignColumn guibg=NONE")
+
+-- sign icons
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", numhl = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn", numhl = "" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint", numhl = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo", numhl = "" })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",

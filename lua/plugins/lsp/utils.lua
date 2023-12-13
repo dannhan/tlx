@@ -1,0 +1,21 @@
+return {
+	-- {
+	-- 	-- LSP VIRTUAL TEXT
+	-- 	"dgagn/diagflow.nvim",
+	-- 	opts = {
+	-- 		scope = "line",
+	-- 		padding_right = 1,
+	-- 		show_sign = true,
+	-- 	},
+	-- },
+	-- {
+	-- 	-- LSP BREADCRUMBS NAVIGATION
+	-- 	"SmiteshP/nvim-navbuddy",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"SmiteshP/nvim-navic",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- },
+}

@@ -3,6 +3,8 @@ return {
 	{
 		{ "bluz71/vim-moonfly-colors", name = "moonfly" },
 		{ "rose-pine/neovim", name = "rose-pine" },
+		{ "catppuccin/nvim", name = "catppuccin" },
+		{ "EdenEast/nightfox.nvim" },
 		{ "Shatur/neovim-ayu" },
 	},
 	{

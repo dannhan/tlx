@@ -28,4 +28,3 @@ local plugins = {
 }
 
 lazy.setup(plugins)
-

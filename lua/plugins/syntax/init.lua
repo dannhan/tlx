@@ -16,6 +16,9 @@ return {
 					enable = true,
 					enable_close_on_slash = false,
 				},
+				ensure_installed = {},
+				modules = {},
+				ignore_install = {},
 			})
 
 			local rainbow_delimiters = require("rainbow-delimiters")
@@ -36,39 +39,5 @@ return {
 				},
 			}
 		end,
-	},
-
-	-- formatter
-	{
-		"stevearc/conform.nvim",
-		opts = {},
-		config = function()
-			require("conform").setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					-- Conform will run multiple formatters sequentially
-					python = { "isort", "black" },
-					-- Use a sub-list to run only the first available formatter
-					c = { "astyle" },
-					cpp = { "astyle" },
-					javascript = { { "prettierd", "prettier" } },
-					typescript = { { "prettierd", "prettier" } },
-					html = { { "prettierd", "prettier" } },
-					css = { { "prettierd", "prettier" } },
-				},
-			})
-		end,
-	},
-
-	-- highlight
-	{
-		{
-			-- WORD USAGE HIGHLIGHTER
-			"RRethy/vim-illuminate",
-		},
-		{
-			-- HIGHLIGHT YANKED REGION
-			"machakann/vim-highlightedyank",
-		},
 	},
 }
