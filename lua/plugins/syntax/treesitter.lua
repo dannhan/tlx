@@ -1,11 +1,8 @@
 return {
-	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-			"HiPhish/rainbow-delimiters.nvim",
-		},
+		dependencies = "HiPhish/rainbow-delimiters.nvim",
+    lazy = false,
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				sync_install = false,
@@ -39,5 +36,9 @@ return {
 				},
 			}
 		end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		ft = { "astro", "html", "javascriptreact", "typescriptreact" },
 	},
 }

@@ -1,4 +1,4 @@
 require("core")
 require("plugins")
 
-vim.cmd.colorscheme("terafox")
+vim.cmd.colorscheme("everforest")

@@ -1,3 +1,3 @@
-require("core.keymaps")
-require("core.main_options")
-
+require("core.opts")
+require("core.maps")
+require("core.auto")
