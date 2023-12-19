@@ -4,8 +4,8 @@ local plugins = {
   -- language server configuration
   -- require("plugins.lsp.lsp"),
   -- require("plugins.lsp.cmp"),
-  -- require("plugins.lsp.utils"),
   require("plugins.lsp.lsp-zero"),
+  require("plugins.lsp.utils"),
 
   -- switching between files/projects, searching, etc
   require("plugins.navigation.harpoon"),
