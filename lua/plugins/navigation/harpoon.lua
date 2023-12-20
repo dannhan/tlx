@@ -9,7 +9,7 @@ return {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
     },
-    { "<leader>ha", function() require("harpoon"):list():append() end},
+    { "<leader>ha", function() require("harpoon"):list():append() end },
     { "<leader>hs", function() require("harpoon"):list():select(1) end },
     { "<leader>hd", function() require("harpoon"):list():select(2) end },
     { "<leader>hf", function() require("harpoon"):list():select(3) end },

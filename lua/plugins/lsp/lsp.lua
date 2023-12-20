@@ -28,9 +28,7 @@ return {
       })
       vim.keymap.set("n", "<C-i>", function()
         vim.lsp.buf.format({
-          filer = function(client)
-            return client.name == "null-ls"
-          end,
+          filer = function(client) return client.name == "null-ls" end,
         })
       end)
 
@@ -46,9 +44,7 @@ return {
       require("mason").setup({})
       require("mason-lspconfig").setup({
         handlers = {
-          function(server)
-            require("lspconfig")[server].setup({})
-          end,
+          function(server) require("lspconfig")[server].setup({}) end,
         },
         ensure_installed = {},
       })
