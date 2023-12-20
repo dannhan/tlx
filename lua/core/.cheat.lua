@@ -26,7 +26,7 @@ for i = 1, 33, 1 do
   end
 end
 
-function serializeTable(val, name, skipnewlines, depth)
+function SerializeTable(val, name, skipnewlines, depth)
   skipnewlines = skipnewlines or true
   depth = depth or 0
 
@@ -40,7 +40,7 @@ function serializeTable(val, name, skipnewlines, depth)
     tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
 
     for k, v in pairs(val) do
-      tmp = tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
+      tmp = tmp .. SerializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
     end
 
     tmp = tmp .. string.rep(" ", depth) .. "}"
