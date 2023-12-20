@@ -24,6 +24,7 @@ return {
       "rafamadriz/friendly-snippets",
     },
     config = function()
+      ----------- LSP -----------
       require("neodev").setup({})
 
       local lsp = require("lsp-zero").preset("recommended")
@@ -46,19 +47,43 @@ return {
 
       lsp.setup()
 
-      vim.diagnostic.config({ virtual_text = false })
+      vim.diagnostic.config({ virtual_text = true })
 
+      -- null-ls
+      require("null-ls").setup({})
+      require("mason-null-ls").setup({
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        handlers = {},
+        ensure_installed = {},
+        automatic_installation = {},
+      })
+
+      vim.keymap.set("n", "<C-i>", function()
+        vim.lsp.buf.format({
+          filer = function(client) return client.name == "null-ls" end,
+        })
+      end)
+
+      ---------- CMP ----------
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local types = require("cmp.types")
+
+      local function deprioritize_snippet(entry1, entry2)
+        if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+          return false
+        end
+        if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+          return true
+        end
+      end
 
       require("luasnip/loaders/from_vscode").lazy_load()
 
       cmp.setup({
         experimental = { ghost_text = false },
         snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
+          expand = function(args) require("luasnip").lsp_expand(args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -96,8 +121,9 @@ return {
           { name = "path" },
         },
         sorting = {
-          priority_weight = 0,
+          priority_weight = 10,
           comparators = {
+            deprioritize_snippet,
             cmp.config.compare.exact,
             cmp.config.compare.locality,
             cmp.config.compare.score,
@@ -108,23 +134,6 @@ return {
           },
         },
       })
-
-      -- null-ls
-      require("null-ls").setup({})
-      require("mason-null-ls").setup({
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        handlers = {},
-        ensure_installed = {},
-        automatic_installation = {},
-      })
-
-      vim.keymap.set("n", "<C-i>", function()
-        vim.lsp.buf.format({
-          filer = function(client)
-            return client.name == "null-ls"
-          end,
-        })
-      end)
     end,
   },
   {
@@ -132,10 +141,6 @@ return {
     opts = {},
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   },
-  -- {
-  --   "williamboman/mason.nvim", -- Optional
-  --   cmd = "Mason",
-  -- },
   -- {
   --   "dmmulroy/tsc.nvim",
   --   cmd = { "TSC" },
