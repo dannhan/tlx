@@ -11,7 +11,7 @@ local plugins = {
   require("plugins.navigation.harpoon"),
   require("plugins.navigation.oil"),
   require("plugins.navigation.telescope"),
-  -- require("plugins.navigation.persisted"),
+  require("plugins.navigation.persisted"),
 
   -- related to syntax and highlighting
   require("plugins.syntax.treesitter"),
@@ -21,13 +21,11 @@ local plugins = {
   require("plugins.ui.gitsigns"),
   require("plugins.ui.indentline"),
   require("plugins.ui.indicators"),
-  require("plugins.ui.barbecue"),
-  require("plugins.ui.statuscol"),
   require("plugins.ui.colorizer"),
   require("plugins.ui.ufo"),
   require("plugins.ui.scrollbar"),
-  require("plugins.ui.lualine"),
   require("plugins.ui.animate"),
+  require("plugins.ui.statusline"),
 
   -- utility tools
   require("plugins.utility.autopairs"),
