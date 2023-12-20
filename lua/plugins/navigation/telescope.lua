@@ -3,7 +3,7 @@ return {
   tag = "0.1.5",
   cmd = { "Telescope" },
   keys = {
-    -- { "<leader>sl", "<cmd>Telescope persisted theme=dropdown<CR>" },
+    { "<leader>pb", "<cmd>Telescope persisted theme=dropdown<CR>" },
 
     { "<leader>ss", "<cmd> Telescope builtin<CR>" },
     { "<leader>sf", "<cmd> Telescope find_files<CR>" },
@@ -13,6 +13,7 @@ return {
     { "<leader>sd", "<cmd> Telescope diagnostics<CR>" },
     { "<leader>st", "<cmd> Telescope colorscheme<CR>" },
     { "<leader>sr", "<cmd> Telescope resume<CR>" },
+    { "<leader>sb", "<cmd> Telescope buffers<CR>" },
   },
   config = function()
     local actions = require("telescope.actions")
