@@ -17,9 +17,9 @@ return {
   },
   config = function()
     require("persisted").setup()
-    vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>sd", "<cmd>SessionDelete<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>sL", "<cmd>SessionLoadLast<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>ps", "<cmd>SessionSave<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>pd", "<cmd>SessionDelete<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>pL", "<cmd>SessionLoadLast<cr>", { silent = true })
     -- vim.keymap.set("n", "<leader>ss", "<cmd>SessionStart<cr>",  { silent = true })
     -- vim.keymap.set("n", "<leader>so", "<cmd>SessionStop<cr>",   { silent = true })
     -- vim.keymap.set("n", "<leader>st", "<cmd>SessionToggle<cr>", { silent = true })
