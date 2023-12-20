@@ -24,7 +24,7 @@ local plugins = {
   require("plugins.ui.colorizer"),
   require("plugins.ui.ufo"),
   require("plugins.ui.scrollbar"),
-  require("plugins.ui.animate"),
+  require("plugins.ui.neoscroll"),
   require("plugins.ui.statusline"),
   require("plugins.ui.devicons"),
 
