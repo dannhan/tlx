@@ -1,5 +1,5 @@
 return {
-	"petertriho/nvim-scrollbar",
+  "petertriho/nvim-scrollbar",
   event = "VeryLazy",
-	config = true,
+  config = true,
 }

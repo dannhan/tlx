@@ -40,12 +40,12 @@ vim.o.smartcase = true
 
 -- make EndOfBuffer invisible
 vim.opt.fillchars = {
-	eob = " ",
-	fold = " ",
-	foldopen = "",
-	foldsep = " ",
-	foldclose = "",
-	lastline = " ",
+  eob = " ",
+  fold = " ",
+  foldopen = "",
+  foldsep = " ",
+  foldclose = "",
+  lastline = " ",
 }
 
 -- go to previous/next line with h,l,left arrow and right arrow

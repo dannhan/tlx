@@ -3,7 +3,5 @@ return {
   ft = {
     "css",
   },
-  config = function()
-    require("colorizer").setup({})
-  end,
+  config = function() require("colorizer").setup({}) end,
 }
