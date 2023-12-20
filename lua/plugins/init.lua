@@ -26,6 +26,7 @@ local plugins = {
   require("plugins.ui.scrollbar"),
   require("plugins.ui.animate"),
   require("plugins.ui.statusline"),
+  require("plugins.ui.devicons"),
 
   -- utility tools
   require("plugins.utility.autopairs"),
