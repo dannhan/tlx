@@ -29,6 +29,7 @@ vim.o.swapfile = false
 vim.o.undofile = true
 vim.o.encoding = "utf-8"
 
+vim.o.inccommand = "split"
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.wildignore = "*node_modules/**"
 vim.o.pumheight = 10

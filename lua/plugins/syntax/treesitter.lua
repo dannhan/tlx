@@ -38,7 +38,22 @@ return {
     end,
   },
   {
+    -- MARKDOWN AUTO TAGS
     "windwp/nvim-ts-autotag",
     ft = { "astro", "html", "javascriptreact", "typescriptreact" },
+  },
+  {
+    -- HIGHLIGHT ARGUMENTS' DEFINITIONS AND USAGES, USING TREESITTER
+    "m-demare/hlargs.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    lazy = false,
+    config = true
+  },
+  {
+    -- SHOWS THE CONTEXT OF THE CURRENTLY VISIBLE BUFFER CONTENTS
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    opts = { separator = "-" }
   },
 }

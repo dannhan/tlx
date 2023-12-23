@@ -33,6 +33,7 @@ local plugins = {
   require("plugins.utility.comment"),
   require("plugins.utility.numb"),
   require("plugins.utility.whichkey"),
+  require("plugins.utility.motion"),
 }
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
