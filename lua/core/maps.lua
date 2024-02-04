@@ -13,7 +13,7 @@ vim.keymap.set("n", "q:", "q:")
 vim.keymap.set("n", "<CR>", "o<Esc>")
 vim.keymap.set("n", "<S-CR>", "O<Esc>")
 -- Find And Replace
-vim.keymap.set("n", "<C-l>", "wb:%s/<C-r><C-w>/", opts)
+vim.keymap.set("n", "<Leader>l", "wb:%s/<C-r><C-w>/")
 -- Use `\t` to open the previous buffer
 vim.keymap.set("n", "<Leader><Tab>", "<C-^>", opts)
 -- Easy Window navigation
