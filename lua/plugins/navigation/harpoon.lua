@@ -1,9 +1,17 @@
 return {
   "ThePrimeagen/harpoon",
+  event = "VeryLazy",
   branch = "harpoon2",
   keys = {
     {
       "<C-h>",
+      function()
+        local harpoon = require("harpoon")
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+    },
+    {
+      "<leader>ho",
       function()
         local harpoon = require("harpoon")
         harpoon.ui:toggle_quick_menu(harpoon:list())

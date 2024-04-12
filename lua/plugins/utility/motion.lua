@@ -12,7 +12,6 @@ return {
   {
     -- MOVE LINES AROUND
     "fedepujol/move.nvim",
-    event = "VeryLazy",
     config = function()
       local opts = { noremap = true, silent = true }
       -- Normal-mode commands

@@ -1,7 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = "HiPhish/rainbow-delimiters.nvim",
     lazy = false,
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -40,7 +39,7 @@ return {
   {
     -- MARKDOWN AUTO TAGS
     "windwp/nvim-ts-autotag",
-    ft = { "astro", "html", "javascriptreact", "typescriptreact" },
+    ft = { "astro", "html", "javascriptreact", "typescriptreact", "svelte" },
   },
   {
     -- HIGHLIGHT ARGUMENTS' DEFINITIONS AND USAGES, USING TREESITTER
@@ -48,12 +47,5 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     lazy = false,
     config = true
-  },
-  {
-    -- SHOWS THE CONTEXT OF THE CURRENTLY VISIBLE BUFFER CONTENTS
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    opts = { separator = "-" }
   },
 }

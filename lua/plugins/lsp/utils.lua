@@ -1,11 +1,4 @@
 return {
-  -- JELEK
-  -- {
-  --   -- LSP VIRTUAL TEXT
-  --   "dgagn/diagflow.nvim",
-  --   event = "VeryLazy",
-  --   opts = {},
-  -- },
   {
     -- LSP BREADCRUMBS NAVIGATION
     "SmiteshP/nvim-navbuddy",
@@ -35,11 +28,11 @@ return {
       vim.keymap.set("n", "<leader>tl", "<Cmd>TroubleToggle loclist<CR>", bufopts)
 
       vim.keymap.set("n", "<leader><leader>ln", function()
-        require("trouble").next({ skip_groups = false, jump = true });
+        require("trouble").next({ skip_groups = false, jump = true })
       end, { desc = "Next item" })
       vim.keymap.set("n", "<leader><leader>lp", function()
-        require("trouble").previous({ skip_groups = false, jump = true });
+        require("trouble").previous({ skip_groups = false, jump = true })
       end, { desc = "Prev item" })
-    end
+    end,
   },
 }

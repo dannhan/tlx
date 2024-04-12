@@ -29,12 +29,12 @@ return {
 
       local lsp = require("lsp-zero").preset("recommended")
 
-      lsp.on_attach(function(client, bufnr)
+      lsp.on_attach(function(_, bufnr)
         local opts = { buffer = bufnr }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "gd", "<Nop>")
       end)
 
       lsp.set_sign_icons({
@@ -60,7 +60,9 @@ return {
 
       vim.keymap.set("n", "<C-i>", function()
         vim.lsp.buf.format({
-          filer = function(client) return client.name == "null-ls" end,
+          filer = function(client)
+            return client.name == "null-ls"
+          end,
         })
       end)
 
@@ -68,6 +70,10 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local types = require("cmp.types")
+
+      cmp.config.formatting = {
+        format = require("tailwindcss-colorizer-cmp").formatter,
+      }
 
       local function deprioritize_snippet(entry1, entry2)
         if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
@@ -83,7 +89,9 @@ return {
       cmp.setup({
         experimental = { ghost_text = false },
         snippet = {
-          expand = function(args) require("luasnip").lsp_expand(args.body) end,
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -141,9 +149,11 @@ return {
     opts = {},
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   },
-  -- {
-  --   "dmmulroy/tsc.nvim",
-  --   cmd = { "TSC" },
-  --   config = true,
-  -- },
+  -- project typescript checking
+  -- usage: TSC
+  {
+    "dmmulroy/tsc.nvim",
+    cmd = { "TSC" },
+    config = true,
+  },
 }

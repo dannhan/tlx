@@ -2,10 +2,9 @@ local plugins = {
   "nvim-lua/plenary.nvim",
 
   -- language server configuration
-  -- require("plugins.lsp.lsp"),
-  -- require("plugins.lsp.cmp"),
   require("plugins.lsp.lsp-zero"),
   require("plugins.lsp.utils"),
+  require("plugins.lsp.code-action"),
 
   -- switching between files/projects, searching, etc
   require("plugins.navigation.harpoon"),
@@ -34,6 +33,9 @@ local plugins = {
   require("plugins.utility.numb"),
   require("plugins.utility.whichkey"),
   require("plugins.utility.motion"),
+  require("plugins.utility.surround"),
+  require("plugins.utility.bracey"),
+  require("plugins.utility.lazygit")
 }
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
