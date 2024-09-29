@@ -16,7 +16,7 @@ return {
     { "<leader>sb", "<cmd> Telescope buffers<CR>" },
     -- telescope
     { "gd", "<cmd> Telescope lsp_definition<CR>" },
-    { "<leader>gd", "<cmd> Telescope lsp_definition<CR>" },
+    { "<leader>gd", "<cmd> Telescope lsp_definitions<CR>" },
   },
   config = function()
     local actions = require("telescope.actions")

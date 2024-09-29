@@ -35,9 +35,11 @@ local plugins = {
   require("plugins.utility.motion"),
   require("plugins.utility.surround"),
   require("plugins.utility.bracey"),
-  require("plugins.utility.lazygit")
+  require("plugins.utility.lazygit"),
+  require("plugins.utility.sxhkd"),
 }
 
+-- boilerplate code from lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -49,7 +51,6 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
 
 local ok, lazy = pcall(require, "lazy")
@@ -57,6 +58,7 @@ if not ok then
   return
 end
 
+-- run the plugins
 lazy.setup(plugins, {
   defaults = { lazy = true },
   performance = {

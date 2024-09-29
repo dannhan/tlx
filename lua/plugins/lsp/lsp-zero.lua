@@ -144,11 +144,12 @@ return {
       })
     end,
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    opts = {},
-    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   opts = {},
+  --   ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  -- },
+
   -- project typescript checking
   -- usage: TSC
   {
