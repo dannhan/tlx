@@ -2,17 +2,16 @@ return {
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
-    config = function() require("Comment").setup({}) end,
+    opts = {},
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     ft = "typescriptreact",
+    opts = { enable_autocmd = false },
     config = function()
       require("Comment").setup({
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       })
-      require("ts_context_commentstring").setup({})
-      vim.g.skip_ts_context_commentstring_module = true
     end,
   },
 }
