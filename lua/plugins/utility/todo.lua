@@ -1,6 +1,6 @@
 return {
   "folke/todo-comments.nvim",
-  lazy = false,
+  event = "VeryLazy",
   opts = {
     keywords = {
       FIX = {

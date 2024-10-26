@@ -1,5 +1,6 @@
+-- TODO: might merge this with other
 return {
   "karb94/neoscroll.nvim",
   event = "VeryLazy",
-  config = function() require("neoscroll").setup({}) end,
+  opts = {},
 }

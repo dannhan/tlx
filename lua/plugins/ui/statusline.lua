@@ -1,72 +1,90 @@
 return {
+  -- Shows current code context
   {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    lazy = false,
-    dependencies = {
-      "SmiteshP/nvim-navic",
+    "SmiteshP/nvim-navic",
+    {
+      "utilyre/barbecue.nvim",
+      init = function()
+        -- HACK:
+        -- workaround for the layout shift
+        -- make the startup time a little bit slower
+        local filename = vim.api.nvim_buf_get_name(0)
+        vim.api.nvim_set_hl(0, "WinBarText", { bold = true })
+        vim.opt.winbar = string.format("%%#WinBarBold#   %%*%%#WinBarText#%s%%*", vim.fn.fnamemodify(filename, ":t"))
+      end,
+      event = { "BufReadPre", "BufNewFile" },
+      opts = {},
+      -- opts = { attach_navic = false }
     },
-    config = function()
-      require("barbecue").setup({
-        attach_navic = false,
-      })
-    end,
   },
+  -- Neovim statusline plugin written in pure lua.
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-    event = "VeryLazy",
-    config = function()
-      require("lualine").setup({
-        sections = {
-          lualine_c = {
-            {
-              "filename",
-              file_status = true,   -- displays file status (readonly status, modified status)
-              path = 1,             -- relative path
-              shorting_target = 40, -- Shortens path to leave 40 space in the window
-            },
-          },
+    lazy = false,
+    opts = {
+      options = {
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "|", right = "|" },
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { "close" },
         },
-      })
-    end,
+      },
+      -- sections layout:
+      -- +-------------------------------------------------+
+      -- | A | B | C                             X | Y | Z |
+      -- +-------------------------------------------------+
+      sections = {
+        lualine_a = {},
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    },
   },
+  -- Buffer / Tabline
+  -- TODO: implement tab
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    init = function()
+      -- HACK:
+      -- workaround if the colorscheme not loaded first
+      -- this might create some bugs in future
+      vim.cmd.colorscheme("default")
+    end,
+    lazy = (vim.o.showtabline == 0),
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp",
+        separator_style = "slope",
+        show_close_icon = false,
+        custom_filter = function(buf_number)
+          if vim.fn.bufname(buf_number) ~= "" then
+            return true
+          end
+        end,
+      },
+    },
+  },
+  -- Status column plugin that provides a configurable 'statuscolumn' and click handlers.
+  -- what you see on the leftside
   {
     "luukvbaal/statuscol.nvim",
     lazy = false,
-    config = function()
+    opts = function()
       local builtin = require("statuscol.builtin")
-      require("statuscol").setup({
+      return {
         relculright = true,
         segments = {
           { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
           { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-          { text = { "%s" },                  click = "v:lua.ScSa" },
+          { text = { "%s" }, click = "v:lua.ScSa" },
         },
-      })
+      }
     end,
   },
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   version = "v3.*",
-  --   dependencies = 'nvim-tree/nvim-web-devicons', lazy = false,
-  --   config = function()
-  --     require("bufferline").setup({
-  --       options = {
-  --         mode = "buffers",
-  --         separator_style = "thick",
-  --         diagnostics = "nvim_lsp",
-  --         custom_filter = function(buf_number)
-  --           if vim.bo[buf_number].filetype ~= "qf" then
-  --             return true
-  --           end
-  --           if vim.bo[buf_number].filetype ~= "oil" then
-  --             return true
-  --           end
-  --         end,
-  --       },
-  --       highlights = { tab = { fg = "#CCCCCC" } },
-  --     })
-  --   end
-  -- }
 }

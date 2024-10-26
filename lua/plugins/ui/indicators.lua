@@ -1,21 +1,12 @@
 return {
   {
-    -- WORD USAGE HIGHLIGHTER
+    -- Automatically highlighting other uses of the word under the cursor
     "RRethy/vim-illuminate",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
-    -- JUMP TO WORD INDICTORS
-    "jinh0/eyeliner.nvim",
-  },
-  {
-    -- CURSOR MOVEMENT HIGHLIGHTER
+    -- Highlight cursor when it moves
     "DanilaMihailov/beacon.nvim",
-    lazy = false,
-  },
-  {
-    -- HIGHLIGHT YANKED REGION
-    "machakann/vim-highlightedyank",
     event = "VeryLazy",
   },
 }

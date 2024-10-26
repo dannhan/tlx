@@ -1,3 +1,4 @@
+-- TODO: config this
 return {
   "windwp/nvim-autopairs",
   event = "InsertEnter",

@@ -1,7 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
     lazy = false,
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -13,31 +12,12 @@ return {
         modules = {},
         ignore_install = {},
       })
-
-      local rainbow_delimiters = require("rainbow-delimiters")
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
-        },
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-          tsx = "rainbow-parens",
-          -- javascript = 'rainbow-parens',
-        },
-        highlight = {
-          "RainbowDelimiterCyan",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterGreen",
-        },
-      }
     end,
   },
   {
     -- MARKDOWN AUTO TAGS
     "windwp/nvim-ts-autotag",
-    -- ft = { "astro", "html", "javascriptreact", "typescriptreact", "svelte" },
-    lazy = false,
+    ft = { "astro", "html", "javascriptreact", "typescriptreact", "svelte" },
     config = function()
       require("nvim-ts-autotag").setup({
         opts = {

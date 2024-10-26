@@ -1,18 +1,9 @@
+-- TODO:
 return {
-  "lewis6991/gitsigns.nvim",
-  lazy = false,
-  -- opts = {
-  --   signs = {
-  --     add = { text = "│" },
-  --     change = { text = "│" },
-  --     delete = { text = "󰍵" },
-  --     topdelete = { text = "‾" },
-  --     changedelete = { text = "~" },
-  --     untracked = { text = "│" },
-  --   },
-  -- },
-  config = function()
-    require("gitsigns").setup({
+  {
+    "lewis6991/gitsigns.nvim",
+    lazy = false,
+    opts = {
       signs = {
         add = { text = "┃" },
         change = { text = "┃" },
@@ -39,9 +30,9 @@ return {
         virt_text_priority = 100,
       },
       current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-      current_line_blame_formatter_opts = {
-        relative_time = false,
-      },
+      -- current_line_blame_formatter_opts = {
+      --   relative_time = false,
+      -- },
       sign_priority = 6,
       update_debounce = 100,
       status_formatter = nil, -- Use default
@@ -54,6 +45,6 @@ return {
         row = 0,
         col = 1,
       },
-    })
-  end,
+    },
+  },
 }

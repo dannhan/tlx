@@ -1,27 +1,15 @@
+-- TODO: harpoon with telescope
 return {
   "ThePrimeagen/harpoon",
-  event = "VeryLazy",
   branch = "harpoon2",
+  -- stylua: ignore
   keys = {
-    {
-      "<C-h>",
-      function()
-        local harpoon = require("harpoon")
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end,
-    },
-    {
-      "<leader>ho",
-      function()
-        local harpoon = require("harpoon")
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end,
-    },
-    { "<leader>ha", function() require("harpoon"):list():append() end },
-    { "<leader>hs", function() require("harpoon"):list():select(1) end },
-    { "<leader>hd", function() require("harpoon"):list():select(2) end },
-    { "<leader>hf", function() require("harpoon"):list():select(3) end },
-    { "<leader>hg", function() require("harpoon"):list():select(4) end },
+    { "<C-h>",      function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon Quick Menu" },
+    { "<leader>ha", function() require("harpoon"):list():add() end,                                    desc = "[H]arpoon [A]ppend" },
+    { "<leader>h1", function() require("harpoon"):list():select(1) end,                                desc = "[H]arpoon First Item" },
+    { "<leader>h2", function() require("harpoon"):list():select(2) end,                                desc = "[H]arpoon Second Item" },
+    { "<leader>h3", function() require("harpoon"):list():select(3) end,                                desc = "[H]arpoon Third Item" },
+    { "<leader>h4", function() require("harpoon"):list():select(4) end,                                desc = "[H]arpoon Fourth Item" },
   },
   opts = {
     settings = {

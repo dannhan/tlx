@@ -1,6 +1,9 @@
+-- Make Neovim's fold look modern and keep high performance.
+-- zo: open fold, zc: close fold
 return {
   "kevinhwang91/nvim-ufo",
-  lazy = false,
+  dependencies = { "kevinhwang91/promise-async" },
+  event = "VeryLazy",
   init = function()
     vim.o.foldcolumn = "1"
     vim.o.foldlevel = 99
@@ -9,10 +12,8 @@ return {
     vim.o.foldmethod = "indent"
   end,
   opts = {
-    provider_selector = function(_, _, _) return { "treesitter", "indent" } end,
-  },
-  dependencies = {
-    "kevinhwang91/promise-async",
-    "luukvbaal/statuscol.nvim",
+    provider_selector = function(_, _, _)
+      return { "treesitter", "indent" }
+    end,
   },
 }

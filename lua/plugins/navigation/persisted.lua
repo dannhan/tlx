@@ -1,3 +1,4 @@
+-- TODO: make this work again
 return {
   "olimorris/persisted.nvim",
   opts = {
@@ -16,7 +17,6 @@ return {
     },
   },
   config = function()
-    require("persisted").setup()
     vim.keymap.set("n", "<leader>ps", "<cmd>SessionSave<cr>", { silent = true })
     vim.keymap.set("n", "<leader>pd", "<cmd>SessionDelete<cr>", { silent = true })
     vim.keymap.set("n", "<leader>pL", "<cmd>SessionLoadLast<cr>", { silent = true })

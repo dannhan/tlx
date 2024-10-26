@@ -14,7 +14,7 @@ vim.o.softtabstop = 2
 -- Numbers
 vim.o.number = true
 vim.o.relativenumber = true
--- vim.o.numberwidth = 2
+vim.o.numberwidth = 5
 vim.o.ruler = false
 
 vim.o.termguicolors = true

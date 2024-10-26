@@ -1,31 +1,30 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  dependencies = { "HiPhish/rainbow-delimiters.nvim" },
-  main = "ibl",
-  lazy = false,
-  config = function()
-    local hooks = require("ibl.hooks")
-    -- create the highlight groups in the highlight setup hook, so they are reset
-    -- every time the colorscheme changes
-    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-    end)
-
-    local highlight = {
-      "RainbowDelimiterCyan",
-      "RainbowDelimiterViolet",
-      "RainbowDelimiterGreen",
-    }
-
-    -- require("ibl").setup({ scope = { highlight = highlight }, indent = { char = "▏" } })
-    require("ibl").setup({ scope = { highlight = highlight } })
-
-    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-  end,
+  -- Highlight indent line and the current chunk (context) cursor stayed
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      chunk = {
+        enable = true,
+        duration = 50,
+        delay = 0,
+      },
+      line_num = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+        chars = { "┊" },
+      },
+    },
+  },
+  -- INFO: there is a bug in hlchunk indent currently use another plugin for indent
+  -- {
+  --   "lucastavaresa/simpleIndentGuides.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("simpleIndentGuides").setup("┊") -- · | ╎ ┊ │
+  --     vim.opt.list = true -- enable in all buffers
+  --   end,
+  -- },
 }
